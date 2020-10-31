@@ -7,8 +7,8 @@
 Account.destroy_all
 Transaction.destroy_all
 
-phil = Account.create({name: "Phil", balance: $12345.60})
-alfred = Transaction.create({name: "Alfred", balance: $54321.00})
+phil = Account.create({name: "Phil", balance: 12345})
+alfred = Account.create({name: "Alfred", balance: 54321})
 phil.transactions.create({amount: 2000.00, kind: "withdraw", date: Time.new.strftime("%Y-%m-%d %H:%M:%S"), description: "rent"})
 phil.transactions.create({amount: 200.00, kind: "withdraw", date: Time.new.strftime("%Y-%m-%d %H:%M:%S"), description: "phone bill"})
 phil.transactions.create({amount: 6000.00, kind: "deposit", date: Time.new.strftime("%Y-%m-%d %H:%M:%S"), description: "pay check"})
