@@ -3,7 +3,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   # GET /transactions
   def index
-    transactions = Account.all
+    transactions = Transaction.all.order("created_at DESC")
     render json: transactions
   end
 
@@ -14,7 +14,7 @@ class Api::V1::TransactionsController < ApplicationController
 
   # POST /transactions
   def create
-    transaction = Account.new(transaction_params)
+    transaction = Transaction.new(transaction_params)
     
     if transaction.valid?
       transaction.save
@@ -51,7 +51,7 @@ class Api::V1::TransactionsController < ApplicationController
   end
 
   def find_transaction
-    @transaction = Account.find_by(:id => params[:id])
+    @transaction = Transaction.find_by(:id => params[:id])
   end
 
 end

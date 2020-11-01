@@ -47,7 +47,8 @@ class Api::V1::AccountsController < ApplicationController
 
   def account_params
     # whitelist params
-    params.require(:account).permit(:name, :balance)
+    params.require(:account).permit(:name, :balance,
+      questions_attributes: [:id, :amount,:kind, :date, :description, :account_id])
   end
 
   def find_account
